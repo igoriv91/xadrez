@@ -8,6 +8,7 @@ public class Program {
 		Position pos = new Position(3,5);
 		
 		System.out.println(pos);
+		System.out.println(pos);
 
 	}
 
