@@ -42,7 +42,8 @@ public class ChessMatch {
 		return capturedPiece;
 	}
 	private void  validateSourcePosition(Position position) {
-		if (!board.thereIsAPiece(position)) throw new ChessException("Não existe pessa nessa posição");
+		if (!board.thereIsAPiece(position)) throw new ChessException("Nao existe pessa nessa posicao");
+		if (!board.piece(position).isThereAnyPositionMove()) throw new ChessException("Nao existe movimentos possiveis para peca escolhida");
 	}
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
