@@ -18,7 +18,8 @@ public class King extends ChessPiece {
 	
 	@Override
 	protected boolean canMove(Position position) {
-		return (getBoard().positionExists(position) && (!getBoard().thereIsAPiece(position)|| isThereOpponentPiece(position)));
+		return (getBoard().positionExists(position) && 
+				(!getBoard().thereIsAPiece(position)|| isThereOpponentPiece(position)));
 	}
 
 	@Override

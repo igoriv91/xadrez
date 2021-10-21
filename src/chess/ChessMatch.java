@@ -44,7 +44,8 @@ public class ChessMatch {
 		validateSourcePosition(position);
 		return board.piece(position).possibleMoves();
 	}
-	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
+	public ChessPiece performChessMove(ChessPosition sourcePosition, 
+			ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
@@ -62,13 +63,17 @@ public class ChessMatch {
 	}
 	
 	private void  validateSourcePosition(Position position) {
-		if (!board.thereIsAPiece(position)) throw new ChessException("Nao existe pessa nessa posicao");
-		if (currentPlayer != ((ChessPiece)board.piece(position)).getColor()) throw new ChessException("A peca escolhida nao e sua");
-		if (!board.piece(position).isThereAnyPositionMove()) throw new ChessException("Nao existe movimentos possiveis para peca escolhida");
+		if (!board.thereIsAPiece(position)) throw new ChessException("Nao existe "
+				+ "pessa nessa posicao");
+		if (currentPlayer != ((ChessPiece)board.piece(position)).getColor()) 
+			throw new ChessException("A peca escolhida nao e sua");
+		if (!board.piece(position).isThereAnyPositionMove()) 
+			throw new ChessException("Nao existe movimentos possiveis para peca escolhida");
 	}
 	
 	private void validateTargetPosition(Position source, Position target) {
-		if (!board.piece(source).possibleMove(target)) throw new ChessException("A peca escolhida nao pode se mover para a posicao de destino");
+		if (!board.piece(source).possibleMove(target)) 
+			throw new ChessException("A peca escolhida nao pode se mover para a posicao de destino");
 	}
 
 	private void nextTurn() {
